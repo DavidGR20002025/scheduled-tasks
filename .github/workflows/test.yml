@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r birthday_email/requirements.txt
 
       - name: Check secrets are configured
         env:
@@ -49,24 +49,24 @@ jobs:
         run: |
           echo "Checking for required files..."
 
-          if [ -f "main.py" ]; then
-            echo "main.py found"
+          if [ -f "birthday_email/main.py" ]; then
+            echo "birthday_email/main.py found"
           else
-            echo "main.py not found!"
+            echo "birthday_email/main.py not found!"
             exit 1
           fi
 
-          if [ -f "requirements.txt" ]; then
-            echo "requirements.txt found"
+          if [ -f "birthday_email/requirements.txt" ]; then
+            echo "birthday_email/requirements.txt found"
           else
             echo "requirements.txt not found!"
             exit 1
           fi
 
-          if [ -f "birthdays.csv" ]; then
-            echo "birthdays.csv found"
+          if [ -f "birthday_email/birthdays.csv" ]; then
+            echo "birthday_email/birthdays.csv found"
           else
-            echo "birthdays.csv not found!"
+            echo "birthday_email/birthdays.csv not found!"
             exit 1
           fi
 
@@ -74,7 +74,7 @@ jobs:
           echo "All required files found!"
 
       - name: Test Python syntax
-        run: python -m py_compile main.py && echo "Python syntax OK"
+        run: python -m py_compile birthday_email/main.py && echo "Python syntax OK"
 
       - name: Success
         run: |
