@@ -5,9 +5,10 @@ from datetime import datetime,timedelta
 from dateutil.relativedelta import relativedelta
 from flight_data import FlightData
 from notification_manager import NotificationManager
+import os
 
-number_from="+15734961525"
-number_to="+526143671100"
+number_from=os.environ.get("TWILIO_PHONE_NUMBER")
+number_to=os.environ.get("PHONE_NUMBER")
 
 today = datetime.now()
 
