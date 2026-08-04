@@ -1,9 +1,10 @@
 import requests_cache
+import os
 
 class FlightSearch:
     #This class is responsible for talking to the Flight Search API.
     def __init__(self):
-        self.SERP_API="7ec13980d365ec35ef5028911fd9334364d58825311dda4ffe6e63eab93479a8"
+        self.SERP_API=os.environ.get("SERP_API")
         self.session = requests_cache.CachedSession('flight_cache', expire_after=5184000)
 
     def get_flights(self,IATA,day,new_day):
