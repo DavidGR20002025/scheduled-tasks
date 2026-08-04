@@ -1,10 +1,11 @@
 import requests_cache
+import os
 
 class DataManager:
     #This class is responsible for talking to the Google Sheet.
     def __init__(self):
-        self.SHEETY_URL = "https://api.sheety.co/251b076827ac869d85536234688ac5e5/flightPrices/flights"
-        self.SHEETY_AUTH = "RGF2aWQ6RGV2b2x0IzY0MDc="
+        self.SHEETY_URL = os.environ.get("SHEETY_URL")
+        self.SHEETY_AUTH = os.environ.get("SHEETY_AUTH")
         self.headers = {
             "Authorization": f"Basic {self.SHEETY_AUTH}"
         }
